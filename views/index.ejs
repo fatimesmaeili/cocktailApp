@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-
+    <div class="container">
     <h1>Welcome to the Random Cocktail Generator!</h1>
     <div class="container">
         <p>Click the button below to get a random cocktail.</p>
         
-        <!-- Form to get random cocktail -->
         <form action="/random-cocktail" method="get">
             <button type="submit">Get Random Cocktail</button>
         </form>
@@ -26,12 +25,12 @@
             <ul>
                 <% for (let i = 1; i <= 15; i++) { %>
                     <% if (cocktail['strIngredient' + i]) { %>
-                        <li><%= cocktail['strIngredient' + i] %> - <%= cocktail['strMeasure' + i] %></li>
+                        <li><strong><%= cocktail['strMeasure' + i] %></strong>  of  <strong><%= cocktail['strIngredient' + i] %></strong>  </li>
                     <% } %>
                 <% } %>
             </ul>
         <% } %>
     </div>
-
+</div>
 </body>
 </html>
