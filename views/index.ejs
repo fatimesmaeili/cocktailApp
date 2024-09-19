@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cocktail</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h1>Welcome to the Random Cocktail Generator!</h1>
+    <div class="container">
+        <p>Click the button below to get a random cocktail.</p>
+        
+        <!-- Form to get random cocktail -->
+        <form action="/random-cocktail" method="get">
+            <button type="submit">Get Random Cocktail</button>
+        </form>
+
+        <!-- Check if cocktail exists, then display the details -->
+        <% if (cocktail) { %>
+            <h2><%= cocktail.strDrink %></h2>
+            <img src="<%= cocktail.strDrinkThumb %>" alt="Cocktail Image" style="width:300px; height:auto;">
+            <p><strong>Category:</strong> <%= cocktail.strCategory %></p>
+            <p><strong>Instructions:</strong> <%= cocktail.strInstructions %></p>
+            <ul>
+                <% for (let i = 1; i <= 15; i++) { %>
+                    <% if (cocktail['strIngredient' + i]) { %>
+                        <li><%= cocktail['strIngredient' + i] %> - <%= cocktail['strMeasure' + i] %></li>
+                    <% } %>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+
+</body>
+</html>
